@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/playlists-compare/playlists-compare.iml" filepath="$PROJECT_DIR$/playlists-compare/playlists-compare.iml" />
+      <module fileurl="file://$PROJECT_DIR$/playlists-compare.iml" filepath="$PROJECT_DIR$/playlists-compare.iml" />
     </modules>
   </component>
 </project>
