@@ -1,6 +1,7 @@
 package com.example.playlistscompare.controller;
 
 import com.example.playlistscompare.repository.PlaylistRepository;
+import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import se.michaelthelin.spotify.SpotifyApi;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
+import se.michaelthelin.spotify.model_objects.credentials.ClientCredentials;
 import se.michaelthelin.spotify.model_objects.specification.*;
+import se.michaelthelin.spotify.requests.authorization.client_credentials.ClientCredentialsRequest;
 import se.michaelthelin.spotify.requests.data.playlists.GetListOfUsersPlaylistsRequest;
 
 import java.io.IOException;
@@ -19,60 +22,37 @@ import java.util.HashMap;
 @RestController
 @RequestMapping("api/")
 public class PlaylistController {
-    private static final String accessToken = "";
+
     private static final String userId = "ccb58e6dmlmielpa00j321gz3";
-
-    private static final SpotifyApi spotifyApi = new SpotifyApi.Builder()
-            .setAccessToken(accessToken)
-            .build();
-    private static final GetListOfUsersPlaylistsRequest getListOfUsersPlaylistsRequest = spotifyApi
-            .getListOfUsersPlaylists(userId)
-
-            .build();
 
     @Autowired
     private PlaylistRepository playlistRepository;
 
-
-    @GetMapping(value = "get-playlists")
-    public static void getListOfUsersPlaylists() {
-        try {
-            final Paging<PlaylistSimplified> playlistSimplifiedPaging = getListOfUsersPlaylistsRequest.execute();
-
-            System.out.println("Total: " + playlistSimplifiedPaging.getTotal());
-
-        } catch (IOException | SpotifyWebApiException |
-                 org.apache.hc.core5.http.ParseException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-    }
-
-//    http://localhost:8080/api/user-playlists
-    @GetMapping(value = "user-playlists")
-    public static ArrayList<String> getUserPlaylists() {
-        try {
-            final Paging<PlaylistSimplified> playlistSimplifiedPaging = getListOfUsersPlaylistsRequest.execute();
-
-            // return Playlists as JSON
-            PlaylistSimplified[] itemsInfo = playlistSimplifiedPaging.getItems();
-            ArrayList<String> playlistsDetails = new ArrayList<>();
-
-            for (int i = 0; i < itemsInfo.length; i++) {
-                playlistsDetails.add(itemsInfo[i].getName());
-            }
-            return playlistsDetails;
-
-        } catch (Exception e) {
-            System.out.println("Something went wrong!\n" + e.getMessage());
-        }
-        return null;
-    }
-
     //    http://localhost:8080/api/playlists-info
     @GetMapping(value = "playlists-info")
     public static ArrayList<HashMap> getPlaylistsInfo() {
+        Dotenv dotenv = Dotenv.configure().filename("env").load();
+        String ClientId = dotenv.get("CLIENT_ID");
+        String ClientSecret = dotenv.get("CLIENT_SECRET");
+
+        SpotifyApi spotifyApi = new SpotifyApi.Builder()
+                .setClientId(ClientId)
+                .setClientSecret(ClientSecret)
+                .build();
+
+        ClientCredentialsRequest clientCredentialsRequest = spotifyApi.clientCredentials()
+                .build();
+
         try {
-            final Paging<PlaylistSimplified> playlistSimplifiedPaging = getListOfUsersPlaylistsRequest.execute();
+            ClientCredentials clientCredentials = clientCredentialsRequest.execute();
+
+            spotifyApi.setAccessToken(clientCredentials.getAccessToken());
+//            System.out.println("Expires in: " + clientCredentials.getExpiresIn() + " " + spotifyApi.getAccessToken());
+
+          GetListOfUsersPlaylistsRequest getListOfUsersPlaylistsRequest = spotifyApi
+                    .getListOfUsersPlaylists(userId)
+                    .build();
+            Paging<PlaylistSimplified> playlistSimplifiedPaging = getListOfUsersPlaylistsRequest.execute();
 
             // return Playlists as JSON
             PlaylistSimplified[] itemsInfo = playlistSimplifiedPaging.getItems();
@@ -100,12 +80,4 @@ public class PlaylistController {
 
 }
 
-
-
-
-//    @GetMapping("playlists-info")
-//    public List<PlaylistInfo> getInfo() {
-////        return all data from the database
-//        return this.playlistRepository.findAll();
-//    }
 

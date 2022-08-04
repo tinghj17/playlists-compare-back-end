@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e95248b-b7de-4400-b256-0c1a8b1393d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_cdimascio_dotenv_java_2_2_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/playlistscompare/configuration/PlaylistConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playlists-compare.iml" beforeDir="false" afterPath="$PROJECT_DIR$/playlists-compare.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/playlistscompare/AuthorizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/playlistscompare/controller/AuthorizationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/playlistscompare/PlaylistsCompareApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/playlistscompare/PlaylistsCompareApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/playlistscompare/controller/PlaylistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/playlistscompare/controller/PlaylistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/playlistscompare/repository/PlaylistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/playlistscompare/repository/PlaylistRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/playlistscompare/PlaylistsCompareApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/playlistscompare/AuthorizationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/playlistscompare/PlaylistsCompareApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/playlistscompare/PlaylistsCompareApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/playlistscompare/controller/PlaylistController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/playlistscompare/controller/PlaylistController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
