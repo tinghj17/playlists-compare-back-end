@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e95248b-b7de-4400-b256-0c1a8b1393d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env" beforeDir="false" afterPath="$PROJECT_DIR$/env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/playlistscompare/PlaylistsCompareApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/playlistscompare/PlaylistsCompareApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/playlistscompare/controller/PlaylistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/playlistscompare/controller/PlaylistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/playlistscompare/controller/AuthorizationController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/playlistscompare/controller/PlaylistController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/playlistscompare/controller/PlaylistController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,6 +107,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PlaylistController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.playlistscompare.controller.PlaylistController" />
+      <module name="playlists-compare" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.playlistscompare.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="com.example.playlistscompare.PlaylistsCompareApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.playlistscompare.PlaylistsCompareApplication" />
       <module name="playlists-compare" />
@@ -149,6 +164,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.com.example.playlistscompare.PlaylistsCompareApplication" />
+        <item itemvalue="Application.PlaylistController" />
         <item itemvalue="Application.tutorial.Application" />
         <item itemvalue="Application.Application" />
         <item itemvalue="JUnit.PlaylistsCompareApplicationTests" />

@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
-//http://localhost:8080/api/get-user-code
+//http://localhost:8080/api/playlists-info
 @SpringBootApplication (exclude = SecurityAutoConfiguration.class)
 public class PlaylistsCompareApplication {
 	public static void main(String[] args) {
