@@ -13,10 +13,7 @@ import se.michaelthelin.spotify.requests.data.playlists.GetListOfUsersPlaylistsR
 import se.michaelthelin.spotify.requests.data.playlists.GetPlaylistsItemsRequest;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -136,7 +133,7 @@ public class PlaylistController {
 
 //            System.out.println("Total: " + playlistTrackPaging.getTotal());
 //            System.out.println(playlistTrackPaging.getItems()[1].getTrack().getName());
-//              System.out.println("Track's first artist: " + ((Track) playlistTrackPaging.getItems()[0].getTrack()).getArtists()[0]);
+//            System.out.println("Track's first artist: " + ((Track) playlistTrackPaging.getItems()[0].getTrack()).getArtists()[0]);
 
         } catch (Exception e) {
             System.out.println("Something went wrong!\n" + e.getMessage());
@@ -161,12 +158,36 @@ public class PlaylistController {
     }
 
     @GetMapping(value = "compareResult")
-    public static ArrayList<HashMap> compareResult() {
-        String playlistId1 = "3Hp089TimuOA6gyIW9dQss";
+    public static ArrayList<HashMap> compareResult(@RequestParam(name="playlistID1") String playlistId1, @RequestParam(name="playlistID2") String playlistId2) {
+//        String playlistId1 = "3Hp089TimuOA6gyIW9dQss";
         ArrayList<HashMap> result1 = GetPlaylistsItems(playlistId1);
 
-        String playlistId2 = "7CdVOjB4q7K2qR1VDS9Bso";
+//        String playlistId2 = "7CdVOjB4q7K2qR1VDS9Bso";
         ArrayList<HashMap> result2 = GetPlaylistsItems(playlistId2);
+
+        ArrayList<HashMap> same = new ArrayList<>();
+
+//        ArrayList<HashMap> summary = new ArrayList<>(result1);
+        for(int i = 0; i < result1.size(); i++) {
+            for(int j = 0; j < result2.size(); j++) {
+                if(result1.get(i).equals(result2.get(j))) {
+                    same.add(result2.get(j));
+                }
+            }
+        }
+        ArrayList<HashMap> result = new ArrayList<>(same);
+        return result;
+    }
+
+
+    @GetMapping(value = "compareAdvanced")
+    public static ArrayList<HashMap> compareAdvanced(@RequestParam String params) {
+//        String playlistId1 = "3Hp089TimuOA6gyIW9dQss";
+        List<String> playlists = Arrays.asList(params.split(","));
+        ArrayList<HashMap> result1 = GetPlaylistsItems(playlists.get(0));
+
+//        String playlistId2 = "7CdVOjB4q7K2qR1VDS9Bso";
+        ArrayList<HashMap> result2 = GetPlaylistsItems(playlists.get(1));
 
         ArrayList<HashMap> same = new ArrayList<>();
 
