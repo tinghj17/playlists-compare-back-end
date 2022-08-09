@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9e95248b-b7de-4400-b256-0c1a8b1393d5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env" beforeDir="false" afterPath="$PROJECT_DIR$/env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/playlistscompare/controller/AuthorizationController.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
