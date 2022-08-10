@@ -36,7 +36,9 @@ public class PlaylistController {
     //    http://localhost:8080/api/general-info
     @GetMapping(value = "general-info")
     public static ArrayList<HashMap> getPlaylistsInfo() {
-//        Dotenv dotenv = Dotenv.configure().filename("env").load();
+        Dotenv dotenv = Dotenv.configure().filename("env").load();
+//        String ClientId = dotenv.get("CLIENT_ID");
+//        String ClientSecret = dotenv.get("CLIENT_SECRET");
         String ClientId = System.getenv("CLIENT_ID");
         String ClientSecret = System.getenv("CLIENT_SECRET");
 
@@ -85,9 +87,9 @@ public class PlaylistController {
 
 
     public static ArrayList<HashMap> GetPlaylistsItems(String playlistId){
-        Dotenv dotenv = Dotenv.configure().filename("env").load();
-        String ClientId = dotenv.get("CLIENT_ID");
-        String ClientSecret = dotenv.get("CLIENT_SECRET");
+//        Dotenv dotenv = Dotenv.configure().filename("env").load();
+        String ClientId = System.getenv("CLIENT_ID");
+        String ClientSecret = System.getenv("CLIENT_SECRET");
 
 
         SpotifyApi spotifyApi = new SpotifyApi.Builder()
