@@ -125,7 +125,7 @@ public class PlaylistController {
                 trackMap = new HashMap<>();
                 trackMap.put("TRACKNAME", trackInfo[i].getTrack().getName());
                 trackMap.put("ARTIST", (((Track) playlistTrackPaging.getItems()[i].getTrack()).getArtists()[0]).getName());
-                trackMap.put("PIC", ((Track) playlistTrackPaging.getItems()[i].getTrack()).getAlbum().getImages()[0].getUrl());
+                trackMap.put("IMG", ((Track) playlistTrackPaging.getItems()[i].getTrack()).getAlbum().getImages()[0].getUrl());
 
 
                 trackDetails.add(trackMap);
