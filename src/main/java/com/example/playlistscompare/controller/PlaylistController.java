@@ -225,7 +225,7 @@ public class PlaylistController {
                 if(result1.get(i).get("ARTIST").equals(result2.get(j).get("ARTIST"))) {
                     artistMap = new HashMap<>();
                     artistMap.put("Artist",result2.get(j).get("ARTIST").toString());
-                    if (!artistMap.containsValue(result2.get(j).get("ARTIST").toString()))
+                    if (!same.contains(artistMap))
                     {
                         same.add(artistMap);
 
