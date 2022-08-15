@@ -223,11 +223,12 @@ public class PlaylistController {
         for(int i = 0; i < result1.size(); i++) {
             for(int j = 0; j < result2.size(); j++) {
                 if(result1.get(i).get("ARTIST").equals(result2.get(j).get("ARTIST"))) {
-                    if (!same.contains(result2.get(j).get("ARTIST")))
+                    artistMap = new HashMap<>();
+                    artistMap.put("Artist",result2.get(j).get("ARTIST").toString());
+                    if (!artistMap.containsValue(result2.get(j).get("ARTIST").toString()))
                     {
-                        artistMap = new HashMap<>();
-                        artistMap.put("Artist",result2.get(j).get("ARTIST").toString());
                         same.add(artistMap);
+
                     }
                 }
             }
