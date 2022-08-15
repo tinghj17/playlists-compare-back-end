@@ -207,6 +207,29 @@ public class PlaylistController {
         return result;
     }
 
+    @GetMapping(value = "compareArtist")
+    public static ArrayList<HashMap> compareArtist(@RequestParam String params) {
+//        String playlistId1 = "3Hp089TimuOA6gyIW9dQss";
+        List<String> playlists = Arrays.asList(params.split(","));
+        ArrayList<HashMap> result1 = GetPlaylistsItems(playlists.get(0));
+
+//        String playlistId2 = "7CdVOjB4q7K2qR1VDS9Bso";
+        ArrayList<HashMap> result2 = GetPlaylistsItems(playlists.get(1));
+
+        ArrayList<HashMap> same = new ArrayList<>();
+
+//        ArrayList<HashMap> summary = new ArrayList<>(result1);
+        for(int i = 0; i < result1.size(); i++) {
+            for(int j = 0; j < result2.size(); j++) {
+                if(result1.get(i).get("ARTIST").equals(result2.get(j).get("ARTIST"))) {
+                    same.add(result2.get(j));
+                }
+            }
+        }
+        ArrayList<HashMap> result = new ArrayList<>(same);
+        return result;
+    }
+
 }
 
 
