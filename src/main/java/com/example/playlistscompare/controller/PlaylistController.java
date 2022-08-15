@@ -208,7 +208,7 @@ public class PlaylistController {
     }
 
     @GetMapping(value = "compareArtist")
-    public static ArrayList<String> compareArtist(@RequestParam String params) {
+    public static ArrayList<HashMap> compareArtist(@RequestParam String params) {
 //        String playlistId1 = "3Hp089TimuOA6gyIW9dQss";
         List<String> playlists = Arrays.asList(params.split(","));
         ArrayList<HashMap> result1 = GetPlaylistsItems(playlists.get(0));
@@ -216,17 +216,23 @@ public class PlaylistController {
 //        String playlistId2 = "7CdVOjB4q7K2qR1VDS9Bso";
         ArrayList<HashMap> result2 = GetPlaylistsItems(playlists.get(1));
 
-        ArrayList<String> same = new ArrayList<>();
+        ArrayList<HashMap> same = new ArrayList<>();
+        HashMap<String, String> artistMap;
 
 //        ArrayList<HashMap> summary = new ArrayList<>(result1);
         for(int i = 0; i < result1.size(); i++) {
             for(int j = 0; j < result2.size(); j++) {
                 if(result1.get(i).get("ARTIST").equals(result2.get(j).get("ARTIST"))) {
-                    same.add(result2.get(j).get("ARTIST").toString());
+                    if (!same.contains(result2.get(j).get("ARTIST")))
+                    {
+                        artistMap = new HashMap<>();
+                        artistMap.put("Artist",result2.get(j).get("ARTIST").toString());
+                        same.add(artistMap);
+                    }
                 }
             }
         }
-        ArrayList<String> result = new ArrayList<>(same);
+        ArrayList<HashMap> result = new ArrayList<HashMap>(same);
         return result;
     }
 
