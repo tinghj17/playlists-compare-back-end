@@ -16,7 +16,7 @@ import se.michaelthelin.spotify.requests.data.playlists.GetPlaylistsItemsRequest
 import java.util.*;
 
 //@CrossOrigin(origins = "http://localhost:3000")
-@CrossOrigin(origins = "https://playlists-compare.herokuapp.com/")
+@CrossOrigin(origins = "https://playlists-compare.herokuapp.com")
 
 @RestController
 @RequestMapping("api/")
